@@ -1,0 +1,19 @@
+{% comment %} <!-- templates/account_complete.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>アカウントのアクティベーション完了</title>
+</head>
+<body>
+    <header>
+        <h2><a href="{% url 'home' %}">MyV</a></h2>
+        <hr>
+      </header>
+
+    <h1>アカウントのアクティベーションが完了しました！</h1>
+    <p>アカウントのセットアップが正常に完了しました。以下のリンクからサイトをお楽しみください。</p>
+    <a href="{% url 'home' %}">ホームページへ</a> <!-- 'home' はホームページのURL名です -->
+    <a href="{% url 'login' %}">ログインページへ</a> <!-- 'login' はログインページのURL名です -->
+</body>
+</html>  {% endcomment %}
