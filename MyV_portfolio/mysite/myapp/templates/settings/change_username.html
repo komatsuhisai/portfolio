@@ -1,0 +1,32 @@
+{% extends './base_setting.html' %}
+
+{% block content %}
+<h2>ユーザーネーム変更</h2>
+
+<!-- 成功メッセージの表示 -->
+{% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <!-- 現在のユーザーネームの表示 -->
+    <div>
+        <label for="current_username">現在のユーザーネーム:</label>
+        <input type="text" id="current_username" value="{{ request.user.username }}" disabled>
+    </div>
+
+    <!-- 新しいユーザーネームの入力フィールド -->
+    <div>
+        <label for="new_username">新しいユーザーネーム:</label>
+        <input type="text" id="new_username" name="new_username" required>
+    </div>
+
+    <!-- 送信ボタン -->
+    <div>
+        <button type="submit">変更する</button>
+    </div>
+</form>
+{% endblock %}
