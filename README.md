@@ -5,7 +5,7 @@
 MyVは、ユーザーがイラストをアップロードすることで自由にAIの見た目を変更、
 プロンプトを変えることで性格、音声も複数から選ぶことができます。
 
-詳しくはhome.htmlの説明をご覧ください。
+詳しくはhome.htmlの説明をご覧ください（デザインはまだプロトタイプ段階です）。
 https://github.com/komatsuhisai/portfolio/blob/main/MyV_portfolio/myapp/templates/home.html
 
 ## 主要な部分
@@ -23,7 +23,7 @@ https://github.com/komatsuhisai/portfolio/blob/main/MyV_portfolio/myapp/tts_serv
 ## その他の説明
 開発段階ではmanage.pyまでもうひとつ階層を挟んでいました（venvなど）。
 ポートフォリオとしては乱雑と感じ、そのほか余計なファイルやディレクトリなども削除。
-現在、.envを除けば主要なファイルは揃っている状態です。
+現在は.envを除けば主要なファイルは揃っている状態で、アプリとしての機能は完成済みです。
 
 本来はデプロイ後に転職活動を行おうと思っていたのですが、
 現在の職場でのスキルアップが飽和状態になっていることに大きな危機感を感じ、
