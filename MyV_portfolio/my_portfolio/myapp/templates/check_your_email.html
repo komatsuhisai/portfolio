@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>メールを確認してください</title>
+    <style>
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif; /* 日本語フォント */
+            background-color: #f7f7f7;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .container {
+            background-color: #fff;
+            margin: auto;
+            padding: 50px;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 24px; /* フォントサイズを大きく */
+            margin-bottom: 30px;
+        }
+        
+        p {
+            color: #666;
+            font-size: 16px; /* 文字サイズを少し大きく */
+        }
+        
+        .notice {
+            margin-top: 20px;
+            color: #888;
+        }
+        
+        /* スマートフォン用のスタイリング */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 80%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>メールアドレスをご確認ください
+        </h1>
+        <p>サインアップを完了するためには、メールアドレスの確認が必要です。</p>
+        <p>ご登録いただいたメールアドレスに確認メールを送信しました。メール内のリンクをクリックして、メールアドレスを確認してください。</p>
+        
+        <div class="notice">
+            <p>確認メールが見つからない場合は、迷惑メールフォルダを確認するか、またはメールを再送してください。</p>
+        </div>
+    </div>
+</body>
+</html>

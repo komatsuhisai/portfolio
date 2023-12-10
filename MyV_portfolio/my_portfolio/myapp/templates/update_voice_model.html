@@ -1,0 +1,24 @@
+<!-- update_voice_model.thml -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>音声モデル編集</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/voice.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button id="back-to-index" onclick="window.location.href='{% url 'index' %}'">インデックスに戻る</button>
+        </div>
+        <div class="button-group">
+            <button id="model2">Casual</button>
+            <button id="model1">Formal</button>
+        </div>
+    </div>
+    <script src="{% static 'js/update_voice_model.js' %}"></script>
+</body>
+</html>
+
+    
+

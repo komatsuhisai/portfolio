@@ -1,0 +1,30 @@
+<!-- accounts/my_page.html -->
+
+{% extends 'settings/base_setting.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>{{ user.username }}さんのマイページ</h2>
+    <div>
+        <h3>現在の残り会話数</h3>
+        <p>{{ character.api_usage_count }} 回</p>
+        
+        
+    </div>
+    <div>
+        <h3>最新のアップデート情報</h3>
+        <!-- 最新のアップデート情報をここに表示 -->
+        <p>現在のお知らせはありません。</p>
+
+
+    </div>
+    <div>
+        <h3>次回のメンテナンス予定時刻</h3>
+        <p>現在のお知らせはありません。</p>
+    </div>
+    <div>
+        <h3>運営からのお知らせ</h3>
+        <!-- 運営からのお知らせをここに表示 -->
+        <p>現在のお知らせはありません。</p>
+    </div>
+{% endblock %}
