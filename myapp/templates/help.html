@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ヘルプページ</title>
+    <!-- スタイルシートやスクリプトのリンク -->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/help.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <header>
+        <!-- ヘッダー内容、ナビゲーションバーなど -->
+          <!-- 「インデックスに戻る」ボタンの追加 -->
+          <div class="back-to-index">
+            <a href="{% url 'index' %}" class="back-button">インデックスに戻る</a>
+        </div>
+    </header>
+
+    <main>
+        <h1>ヘルプページ</h1>
+
+
+
+
+        <section>
+            <button class="faq-section-question">よくある質問（FAQ）</button>
+    <div class="faq-container" style="display: none;">
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">MyVの使い方を教えてください</button>
+                    <div class="faq-answer">
+                        <p>AIと会話することができるアプリです。「アバター」に好きな画像を登録することで、自由に見た目を変えることができます。「プロンプト」で性格、「ボイス」で音声の種類も変更可能です。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">料金は無料ですか？</button>
+                    <div class="faq-answer">
+                        <p>新規会員登録は無料ですが、AIとの会話回数に制限があります。「<a href="{% url 'my_page' %}">マイページ</a>」にて残り回数が表示されておりますので、ご希望に応じて有料プランをお選びください。</p>
+                        <p>また、登録時に会話数20回が付与されます。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">登録する画像に注意点はありますか？</button>
+                    <div class="faq-answer">
+                        <p>詳しくは「アバターヘルプ」や「利用規約」をお読みください。センシティブな内容は禁止となります。1枚32MB以内のサイズ、JPEG・PNG・GIFがアップロード可能です。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">プロンプトはどんなものでもいいですか？</button>
+                    <div class="faq-answer">
+                        <p>MyVはChatGPTを使用しており、ChatGPTの利用規約を守ってお使いください。画像と同じくセンシティブな内容は禁止となります。詳しくはプロンプトヘルプや利用規約をお読みください。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">二次創作について</button>
+                    <div class="faq-answer">
+                        <p>二次創作をされる版権元の規約に従い、自己責任の元でご使用ください。当アプリを使用したことで発生したいかなる損害も、当方では責任を持ちません。最悪の場合、アカウント停止などの処置を取らせて頂きます。</p>
+                        
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">シェアについて</button>
+                    <div class="faq-answer">
+                        
+                        <p>MyYアプリをシェアして頂き、誠にありがとうございます。お使いのスマートフォン・PCのスクリーンショットや、動画撮影機能をお使いください。事前連絡やアプリ名を記載するなどの制限は一切ありません。画面全体・画面の一部、加工の有無に関わらず大歓迎です。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">配信や動画で使ってもいいですか？</button>
+                    <div class="faq-answer">
+                        <p>はい、使用可能です。背景色を変えることで、マクロキーとして切り抜くこともできます。OBSなどのキャプチャーソフトを使い、ブラウザで該当部分を指定してください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">個人・企業関係なく料金体系は変わりませんか？</button>
+                    <div class="faq-answer">
+                        <p>はい、同様にご利用可能です。自社キャラクターの使用・SNSへの投稿・配信や動画などにご活用ください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">パスワード・決済情報の取り扱いについて</button>
+                    <div class="faq-answer">
+                        <p>パスワードは暗号化されており、運営では文字列などを知ることができません。決済情報も管理会社（<a href="https://stripe.com/jp" target="_blank" rel="noopener">Stripe</a>）に委託しておりますので、安心してお使いください。</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+        <section>
+            
+            <p><div class="setumei">※運営者のブログに移動します。</div></p>
+            <h3><a href="https://26g.me/6902" target="_blank" rel="noopener">アバターに関するヘルプ</a></h3>
+            <h3><a href="https://26g.me/6869" target="_blank" rel="noopener">プロンプトに関するヘルプ</a></h3>
+                
+                    
+                        <h3><a href="https://26g.me/6908" target="_blank" rel="noopener">利用規約</a></h3>
+                            <h3><a href="https://26g.me/6912" target="_blank" rel="noopener">プライバシーポリシー</a></h3>
+                   
+                    
+
+
+
+
+            <!-- 利用方法に関する詳細な説明 -->
+        </section>
+
+       
+
+        <section>
+           
+            <h2>サポートへの連絡</h2>
+            <p>その他サポートが必要な場合は、以下の方法でお問い合わせくださいませ。</p>
+            <ul>
+                <li>メール：info@26g.me</li>
+                
+                <!-- その他の連絡方法 -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <!-- フッター内容 -->
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+        
+        document.querySelector('.faq-section-question').addEventListener('click', () => {
+            const container = document.querySelector('.faq-container');
+            container.style.display = container.style.display === 'block' ? 'none' : 'block';
+        });
+
+    </script>
+</body>
+</html>

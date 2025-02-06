@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アカウント設定</title>
+    <link rel="stylesheet" href="{% static 'css/activation_success.css' %}">
+
+</head>
+<body>
+    <header>
+        <h2>MyV</h2> <!-- ここにサイト名やロゴを入れます -->
+        <!-- 他のナビゲーションリンクもここに追加可能 -->
+        <hr>
+    </header>
+    
+    <div class="container">
+        <h1>メールアドレスの確認が完了しました</h1>
+        <p>パスワードを設定してアカウント設定を完了してください。</p>
+        <div class="error-message" id="error-message">
+            <!-- Django テンプレートでエラーを表示 -->
+            {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    
+
+
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if form.password.errors %}
+                <div class="form-error-messages">
+                    {% for error in form.password.errors %}
+                        <p class="error">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <button type="submit">アカウント設定を完了する</button>
+        </form>
+      
+        
+        
+            
+    </div>
+    <footer>
+        <p class="footer-copyright">
+          © 2023 MyV. All Rights Reserved. Developed by TUSMUGI Yuri.
+        </p>
+      </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const passwordInput = document.querySelector('input[name="password"]'); // パスワードフィールドを選択
+            const form = document.querySelector('form'); // フォームを選択
+    
+            form.addEventListener('submit', function(e) {
+                const password = passwordInput.value;
+                let errorMessages = [];
+    
+                if (password.length < 8) {
+                    errorMessages.push("パスワードは最低 8 文字以上必要です。");
+                }
+    
+                // 他のパスワード検証ルールをここに追加
+    
+                if (errorMessages.length > 0) {
+                    e.preventDefault(); // フォームの送信を防止
+                    alert(errorMessages.join('\n')); // エラーメッセージを表示
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

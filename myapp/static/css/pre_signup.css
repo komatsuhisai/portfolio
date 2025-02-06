@@ -1,0 +1,164 @@
+/*pre_signup.css */
+/* 基本スタイル */
+body {
+    
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    margin-top: 40px;
+    padding: 0;
+}
+
+h1 {
+    font-size: 18px;
+    padding: 0 8px 0 8px;
+    
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff; /* 背景色 */
+    z-index: 1000; /* 他の要素より前面に表示 */
+}
+hr {
+    background-color: rgb(187, 145, 238);
+    height: 2px; /* 水平線の太さ */
+    
+
+}
+
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+/* フォーム関連 */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form p {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* ボックスサイズを固定 */
+    margin-bottom: 10px;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #5cb85c;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: #4cae4c;
+}
+
+/* エラーメッセージ */
+ul {
+    background: #ffdddd;
+    border: 1px solid #ff0000;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+/* ログインリンク */
+section a {
+    color: #5cb85c;
+    text-decoration: none;
+}
+
+section a:hover {
+    text-decoration: underline;
+}
+
+.signup {
+    
+    font-size: 15px;
+}
+
+.footer-copyright {
+    font-size: 0.8em;
+    color: #ccc;
+    text-align: center;
+    padding: 10px;
+  }
+  
+h2 {
+    font-size: 24px; /* フォントサイズを大きくする */
+    color: #333; /* フォントの色 */
+    text-align: center; /* 中央揃え */
+    margin-bottom: 20px; /* 下の余白 */
+    padding-bottom: 10px; /* 下のパッディング */
+        border-bottom: 2px solid #5cb85c; /* 下線を追加 */
+
+}
+
+.terms {
+    font-size: 14px;
+    text-align: center; /* 中央揃え */
+    margin-top: 20px; /* 上の余白 */
+}
+
+.terms a {
+    color: #5cb85c; /* リンクの色 */
+    text-decoration: none; /* 下線をなくす */
+}
+
+.terms a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+a {
+    text-decoration: none; /* リンクの下線を消す */
+}
+
+a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+.error-message {
+    background: #ffdddd; /* 背景色 */
+    border: 1px solid #ff0000; /* ボーダー */
+    padding: 10px; /* パディング */
+    border-radius: 5px; /* ボーダーの丸み */
+    margin-bottom: 10px; /* 下部のマージン */
+    text-align: center; /* テキストを中央揃え */
+}

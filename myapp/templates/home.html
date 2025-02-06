@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MyVは、ユーザーが自分だけのAIキャラクターを作成し、話し、動かすことができるインタラクティブなプラットフォームです。">
+    <meta name="keywords" content="AI, チャットボット, 仮想キャラクター, インタラクティブ">
+    <meta name="author" content="TUMUGI Yuri">
+    <title>MyV｜自分だけのAIを作れる！話せる！動かせる！</title>
+    <link rel="stylesheet" href="{% static './css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+
+</head>
+<body>
+    
+    
+    <header>
+        <div class="header-container">
+            <h1><a href="https://myv-26g.site/myapp/" style="text-decoration: none; color: black;">MyV</a>
+                </h1>
+            <div class="login-container">
+                {% if user.is_authenticated %}
+                    <p class="login-message">こんにちは、{{ user.username }}さん</p>
+                    <button onclick="location.href='{% url 'logout' %}'" class="nav-button">ログアウト</button>
+                    <button onclick="location.href='{% url 'index' %}'" class="signup-button-header">マイページ</button>
+                {% else %}
+                    <button onclick="location.href='{% url 'login' %}'" class="nav-button">ログイン</button>
+                    <button onclick="location.href='{% url 'pre_signup' %}'" class="signup-button-header">無料会員登録</button>
+                {% endif %}
+            </div>
+        </div>
+        <hr>
+    </header>
+
+    <div class="carousel-container">
+        <div class="carousel-item">
+            <main>
+                <!-- 画像とテキストを含むコンテナ -->
+                <div class="image-container siro">
+                    <!-- 画像の代わりに動画を埋め込む -->
+                    <video autoplay loop muted>
+                        <source src="{% static 'images/240108.mp4' %}" type="video/mp4">
+                        ご使用のブラウザは動画をサポートしていません。
+                    </video>
+                    <!-- 画像の上に表示されるテキストとボタン -->
+                    <div class="overlay">
+                        <div class="top">オリジナルAI作成アプリ『MyV』</div>
+                        {% if user.is_authenticated %}
+                            <button onclick="location.href='{% url 'index' %}'" class="signup-button">マイページへ</button>
+                        {% else %}
+                            <button onclick="location.href='{% url 'pre_signup' %}'" class="signup-button">まずは無料で始める</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </main>
+        </div>
+     </div>
+
+
+
+        <div class="carousel-item" style="background-image: url('{% static 'images/room.jpg' %}')">
+        <div class="image-container first-image">
+            <img src="{% static 'images/1.png' %}" alt="Image description">
+            <div class="overlay-container">
+            <div class="overlay">
+                <section class="main">
+                    <h2>自分だけのAIを作れる！話せる！動かせる！</h2>
+                    <p>MyVはあなただけのAIが生成できる、新時代のイラストプラットフォームです。</p>
+                    <p>コードいらずでかんたん！最先端のChatGPTを誰でも直感的に。</p>
+                </section>
+            </div>
+        </div>
+        </div>
+     </div>
+
+
+
+     <div class="carousel-item" style="background-image: url('{% static 'images/cyber.jpg' %}')">
+        <div class="image-container zenmen">
+            <img src="{% static 'images/4.png' %}" alt="Image description">
+            <div class="overlay">
+                <section class="main">
+                    <h2>好きなイラストをアップロードするだけ</h2>
+                    <p>お好みで目パチや口パクも。自分で描いた絵はもちろん、AIイラストも対応。</p>
+                    <p>※パーツ分けなしの場合、喋っている間だけ瞬きがなくなります。</p>
+                </section>
+            </div>
+        </div>
+      </div>
+
+     <div class="carousel-item" style="background-image: url('{% static 'images/school.jpg' %}')">
+        <div class="image-container zenmen">
+            <img src="{% static 'images/3.png' %}" alt="Image description">
+            <div class="overlay">
+                <section class="main">
+                    <h2>選べるボイス音声入力でおしゃべり</h2>
+                    <p>AIの音声を数種類の中から選ぶことが可能。</p>
+                    <p>さらに音声入力も完備！</p>
+                    <div class="annotation">※開発中のため現在の音声モデルは1種類です。</div>
+                </section>
+            </div>
+          </div>
+       </div>
+
+       <div class="carousel-item" style="background-image: url('{% static 'images/stream.png' %}')">
+        <div class="image-container zenmen">
+            
+            <img src="{% static 'images/2.png' %}" alt="Image description">
+            <div class="overlay">
+                <section class="main">
+                    <h2>背景も自由にカスタマイズ。クロマキー対応。</h2>
+                    <p>好きな背景を選んで、色々なシチュエーションを楽しもう！</p>
+                    <p>クロマキー合成もできるので、Vtuberとの親和性も抜群。</p>
+                    <div class="annotation">※開発中のため現在の音声モデルは1種類です。</div>
+                </section>
+            </div>
+        </div>
+        </div>    
+    
+
+       <div class="carousel-item" style="background-image: url('{% static 'images/street.jpg' %}')">
+        <div class="image-container">
+            <img src="{% static 'images/5.png' %}" alt="Image description">
+            <div class="overlay">
+                <section class="main">
+                    <h2>さあ好きなAIを作ってシェアしよう！</h2>
+                    <p>オリジナルのAIや自分のAIを作ってもOK。</p>
+                    <p>SNSや配信で、友達やリスナーに自慢するのもおすすめ！</p>
+                    
+                </section>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="carousel-item" style="background-image: url('{% static 'images/beach.jpg' %}')">
+        <div class="image-container zenmen">
+            <img src="{% static 'images/6.png' %}" alt="Image description">
+            <div class="overlay">
+                <section class="main">
+                    <h2>まずは無料でお試し！</h2>
+                    <p>会話回数20回までは無料でお試しできます。</p>有料プランと条件はいっさい変わりません！</p>
+                    
+                    {% if user.is_authenticated %}
+                        <button onclick="location.href='{% url 'index' %}'" class="signup-button">マイページへ</button>
+                    {% else %}
+                        <button onclick="location.href='{% url 'pre_signup' %}'" class="signup-button">まずは無料で始める</button>
+                    {% endif %}
+                        
+                </section>
+            
+            </div>
+        </div>
+     </div>
+
+
+
+
+
+
+     <div class="carousel-item siro">
+        
+            
+        <section class="plan">
+           
+<section class="price murixyou">
+<span class="price_title">無料プラン</span>　<span class="annotation">まずはお試し</span>
+<p>
+<small>会話数</small><span class="price_font">20</span><small>回</small>　　
+<span class="price_font">¥0</span></p>
+
+</section>
+
+
+<section class="price mini">
+<span class="price_title">ミニプラン</span>　<span class="annotation">AIに触れる</span>
+<p>
+<small>会話数</small><span class="price_font">100</span><small>回</small>　
+<small>税込</small><span class="price_font">¥98</span></p>
+
+</section>
+
+
+
+<section class="price standard">
+
+<span class="price_title">スタンダードプラン</span>　<span><strong>＼迷ったらおすすめ！／</strong></span>
+<p>
+<small>会話数</small><span class="price_font">500</span><small>回</small>　
+<small>税込</small><span class="price_font">¥298</span></p>
+
+</section>
+
+
+
+
+<section class="price director">
+    <span class="price_title">ディレクタープラン</span>　<span class="annotation">試行回数を増やしてよりカスタマイズ　</span>
+
+<div class="price_title"></div>
+<p>
+<small>会話数</small><span class="price_font">1100</span><small>回</small>　
+<small>税込</small><span class="price_font">¥598</span></p>
+
+</section>
+
+
+
+
+
+
+<section class="main">
+<h2>さあ、AIを始めよう</h2>
+<p>今すぐMyVでキャラクターを作りましょう。</p>
+<button onclick="location.href='{% url 'pre_signup' %}'" class="signup-button">まずは無料で始める</button>
+</section>
+
+</div>
+    
+    <div class="carousel-item">
+<!-- フッター開始 -->
+<footer>
+    <sns>
+       
+        <h3>ヘルプ</h3>
+        <ul>
+            <li><a href="https://myv-26g.site/myapp/help/" target="_blank">よくある質問</a></li>
+            <li><a href="https://26g.me/6869" target="_blank">アバターに関するヘルプ</a></li>
+            <li><a href="https://26g.me/6902" target="_blank">プロンプトに関するヘルプ</a></li>
+            
+        
+        
+            <h3>サポート</h3>
+        
+            <ul>
+                <li><a href="https://26g.me/6908" target="_blank">利用規約</a></li>
+                <li><a href="https://26g.me/6912" target="_blank">プライバシーボリシー</a></li>
+
+                <li><a href="{% url 'tokutei' %}" target="_blank">特定商取引法に基づく表記</a></li>
+
+
+
+                
+                <!-- 以下のリンクをメールクライアントを開くリンクに変更 -->
+                <li>連絡先：<a href="mailto:info@26g.me">info@26g.me</a></li>
+            </ul>
+
+
+        <div class="sns-icons">
+            <a href="https://twitter.com/26UGI" target="_blank" class="cust
+            on"></a>
+            <a href="https://26g.me/" target="_blank"><i class="fas fa-blog"></i></a>
+</div>
+
+    <!-- フッターの著作権表示 -->
+    <p class="footer-copyright">
+        © 2023 MyV. All Rights Reserved. Developed by TUSMUGI Yuri.
+    </p>
+</footer>
+</div>
+<div class="footer-extension"></div>
+
+
+  <div class="carousel-navigation">
+    <div class="nav-dot" data-slide="0"></div>
+    <div class="nav-dot" data-slide="1"></div>
+    <div class="nav-dot" data-slide="2"></div>
+    <div class="nav-dot" data-slide="3"></div>
+    <div class="nav-dot" data-slide="4"></div>
+    <div class="nav-dot" data-slide="5"></div>
+    <div class="nav-dot" data-slide="6"></div>
+    <div class="nav-dot" data-slide="7"></div>
+    <div class="nav-dot" data-slide="8"></div>
+    
+
+ 
+    <!-- 他のドットも同様に追加 -->
+</div>
+
+
+
+
+</body>
+</html>

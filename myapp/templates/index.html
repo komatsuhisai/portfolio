@@ -1,0 +1,250 @@
+<!-- index.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+    <meta charset="UTF-8">
+    <title>{{ user.username }}のページ</title>
+    
+  
+
+    
+    
+
+
+    
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body style="background-image: none;">
+  
+
+
+  <div class="container">
+
+
+  <div class="header">
+    <a href="{% url 'upload_character_images' %}" class="icon mobile-hide">
+      <i class="fa fa-user-edit"></i> <div class="mobile-hide">アバター</div>
+    </a>
+    <a href="{% url 'update_prompt' %}" class="icon mobile-hide">
+      <i class="fa fa-edit"></i> <div class="mobile-hide">プロンプト</div>
+    </a>
+    <a href="{% url 'update_voice_model' %}" class="icon mobile-hide voice">
+      <i class="fa fa-microphone"></i><div class="mobile-hide">ボイス</div> 
+    </a>
+    
+    
+  </div>
+
+
+
+
+{% comment %} <body style="background-color: {{ background_color | default:'#ffffff' }};"> {% endcomment %}
+
+
+<!-- 体 -->
+<div id="character" class="character">
+  {% if character.get_body_image_url %}
+      <img src="{{ character.get_body_image_url }}" alt="Body" class="character-part  user-uploaded-image">
+  {% else %}
+      <img src="{% static 'images/body.png' %}" alt="Body" class="character-part">
+  {% endif %}
+
+
+  {% if character.get_open_eyes_image_url %}
+  <img id="eye-image" src="{{ character.get_open_eyes_image_url }}" data-open="{{ character.get_open_eyes_image_url }}" data-closed="{{ character.get_close_eyes_image_url }}" alt="Open Eyes" class="character-part user-uploaded-image">
+{% else %}
+  <img id="eye-image" src="{% static 'images/eyes.png' %}" data-open="{% static 'images/eyes.png' %}" data-closed="{% static 'images/eyes_close.png' %}" alt="Eyes" class="character-part">
+{% endif %}
+
+
+
+
+
+
+  <!-- 開いた口 -->
+{% if character.get_open_mouth_image_url %}
+    <img id="mouth-image-open-user" src="{{ character.get_open_mouth_image_url }}" alt="Open Mouth" class="character-part user-uploaded-image user-mouth" style="display: none;">
+{% else %}
+    <img id="mouth-image-open" src="{% static 'images/mouth_close.png' %}" alt="Open Mouth" class="character-part">
+{% endif %}
+
+<!-- 半分開いた口 -->
+{% if character.get_half_open_mouth_image_url %}
+    <img id="mouth-image-half-user" src="{{ character.get_half_open_mouth_image_url }}" alt="Half Open Mouth" class="character-part user-uploaded-image user-mouth" style="display: none;">
+{% else %}
+    <img id="mouth-image-half" src="{% static 'images/mouth_open.png' %}" alt="Half Open Mouth" class="character-part">
+{% endif %}
+
+<!-- 閉じた口 -->
+{% if character.get_closed_mouth_image_url %}
+    <img id="mouth-image-user" src="{{ character.get_closed_mouth_image_url }}" alt="Closed Mouth" class="character-part user-uploaded-image user-mouth">
+{% else %}
+    <img id="mouth-image" src="{% static 'images/mouth_close.png' %}" alt="Closed Mouth" class="character-part">
+{% endif %}
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div id="error-message-container" class="error-message"></div>
+
+<form id="chat-form" class="chat-form-container">
+  <button id="mic-button" class="toggle-mic">
+    <i class="fa fa-microphone"></i></i>
+  </button>
+
+  <textarea class="input-field" name="text_input" id="text_input" 
+            placeholder="メッセージを入力してください" 
+            rows="1" cols="50" maxlength="100" 
+            aria-required="true" required></textarea>
+
+  <input type="submit" class="submit-button" value="▶" aria-label="メッセージを送信">
+
+  <div class="audio-controls">
+    <button class="toggle-audio">🔊/🔇</button>
+    <input type="range" class="volume-slider" min="0" max="100" value="100">
+  </form>
+</div>
+
+
+ <!-- 背景 -->
+{% if character.get_background_image_url %}
+<img src="{{ character.get_background_image_url }}" alt="Background" class="character-part background">
+{% endif %} 
+</div> 
+
+
+
+
+
+<div id="chat_area" style="chat_area">
+
+<div id="message-container"></div>
+
+
+
+
+<div class="sidebar">
+  <a href="{% url 'my_page' %}" class="sidebar-icon">
+    <i class="fas fa-cog"></i>
+</a>
+  <a href="{% url 'help' %}" class="sidebar-icon">
+      <i class="fas fa-question-circle"></i>
+  </a>
+</div>
+
+
+
+
+<div class="loader"></div>
+
+
+
+
+ <!-- エラーメッセージ -->
+<div id="error-message-container" class="error-message"></div>
+
+
+
+
+<!-- アクセシビリティ向上のためにaria-liveを使用 -->
+<div id="feedback-container" aria-live="assertive">
+  <div id="response-text"></div>
+  <!-- IDを修正しました -->
+  <div id="error-message" class="error-message"></div>
+</div>
+
+
+
+
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/character_position.js' %}"></script>
+
+  <script src="{% static 'js/voice_recognition.js' %}"></script>
+  <script src="{% static 'js/drag_and_zoom.js' %}"></script>
+
+  
+  
+
+
+<!-- 静的ファイルのパスをJavaScriptに渡す -->
+<script type="text/javascript">
+  console.log("Background color from template:", '{{ background_color }}');
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (backgroundColor && backgroundColor !== '#ffffff') {
+        document.body.style.backgroundColor = backgroundColor;
+        document.body.style.backgroundImage = 'none';
+    
+    }
+  });
+  
+  
+
+  window.staticFilePaths = {
+    mouthOpen: '{% static "images/mouth_open.png" %}',
+    mouthHalf: '{% static "images/mouth_half.png" %}',
+    mouthClose: '{% static "images/mouth_close.png" %}',
+    eyesOpen: '{{ character.get_open_eyes_image_url }}',
+    eyesClosed: '{{ character.get_closed_eyes_image_url }}',
+  };
+
+  var isUserLoggedIn = {{ request.user.is_authenticated|lower }};
+  var backgroundColor = '{{ background_color }}';  // Djangoテンプレート変数をJavaScript変数にセット
+
+
+</script>
+<script type="module" src="{% static 'js/eyes_animation.js' %}"></script>
+<script type="module" src="{% static 'js/voice_recognition.js' %}"></script>
+<script type="module" src="{% static 'js/chat.js' %}"></script>
+<script type="module" src="{% static 'js/chat_message.js' %}"></script>
+<script type="module" src="{% static 'js/mouth_animation.js' %}"></script>
+<script type="module" src="{% static 'js/audio_controls.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/loader.js' %}"></script>
+
+
+
+
+
+
+  
+  
+  
+
+
+</body>
+</html>

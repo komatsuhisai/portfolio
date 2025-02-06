@@ -1,0 +1,231 @@
+/* avatar_edit_style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    margin-top: 80px;
+    padding: 0;
+    word-wrap: break-word; /* 古いブラウザ対応 */
+    overflow-wrap: break-word; /* 長い単語やURLを折り返す */
+}
+
+.navigation {
+    background-color: #007bff;
+    padding: 10px;
+    text-align: center;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-button, .default-button {
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.default-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.submit-button:hover, .default-button:hover {
+    opacity: 0.9;
+}
+
+.thumbnail {
+    
+    width: 100px; /* サムネイルの幅 */
+    height: auto;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.image-upload-block {
+    background-color: #f8f8f8; /* 薄い背景色 */
+    border: 1px solid #eaeaea; /* 軽いボーダー */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.image-upload-block label {
+    font-weight: bold;
+}
+
+.thumbnail {
+    width: 100px;
+    height: auto;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.fixed-header {
+
+}
+
+.header-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.header-button:hover {
+    background-color: #0056b3;
+}
+
+.header-button {
+    /* 共通スタイリング */
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none; /* リンクの下線を消す */
+}
+
+/* インデックスに戻るボタン */
+.header-button.index {
+    background-color: #007bff;
+}
+
+.header-button.index:hover {
+    background-color: #0056b3;
+}
+
+/* 保存ボタン */
+.header-button.save {
+    background-color: #28a745;
+}
+
+.header-button.save:hover {
+    background-color: #218838;
+}
+
+/* デフォルトに戻すボタン */
+.header-button.reset {
+    background-color: #dc3545;
+}
+
+.header-button.reset:hover {
+    background-color: #c82333;
+}
+
+.form-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    z-index: 1000;
+    left: 0; /* 左端から開始することを保証 */
+}
+
+/* 運営が提供する背景画像選択肢 */
+.background-selection-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.background-option {
+    margin: 10px;
+    text-align: center;
+}
+
+.background-option input[type="radio"] {
+    display: none;
+}
+
+.background-option label {
+    display: block;
+    cursor: pointer;
+}
+
+.background-option img {
+    width: 100px; /* サムネイル画像のサイズを調整 */
+    height: auto;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.background-option input[type="radio"]:checked + label {
+    border: 2px solid #007bff; /* 選択された時のボーダースタイル */
+}
+
+@media screen and (max-width: 600px) {
+    .form-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .navigation a {
+        font-size: 16px;
+    }
+
+    .submit-button, .default-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .thumbnail {
+        width: 80px; /* サムネイルの幅を小さく */
+       
+    }
+
+    .image-upload-block {
+        padding: 10px;
+    }
+
+    .form-header {
+        padding: 8px 0;
+    }
+
+    .header-button {
+        margin: 0 5px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .background-option img {
+        width: 80px; /* 背景選択のサムネイル画像のサイズを調整 */
+    }
+}
+

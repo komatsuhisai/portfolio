@@ -1,0 +1,197 @@
+ /* activation_succes.css */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff; /* 背景色 */
+    z-index: 1000; /* 他の要素より前面に表示 */
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+hr {
+    background-color: rgb(187, 145, 238);
+    height: 2px; /* 水平線の太さ */
+    margin: 0; /* 左側のマージンを削除 */
+    width: 100%; /* 必要に応じて調整 */
+padding: 0;
+  
+    
+
+}
+
+h2 {
+    font-size: 18px;
+    padding: 0 8px 0 8px;
+    
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* 背景色を白に変更 */
+    margin: 80px 0 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+.footer-copyright {
+    font-size: 0.8em;
+    color: #ccc;
+    text-align: center;
+    padding: 10px;
+  }
+
+
+
+.container {
+    background-color: #fff;
+    margin: auto;
+    padding: 40px;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* シャドウをより控えめに */
+}
+
+h1 {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 80%;
+        padding: 20px;
+    }
+}
+
+/* エラーメッセージを隠す */
+.error-message {
+    display: none;
+    color: #ff0000; /* エラーの色 */
+    margin-top: 10px;
+}
+
+.errorlist {
+    color: #ff0000; /* エラーメッセージの色 */
+    font-size: 14px; /* フォントサイズ */
+    list-style: none; /* リストマーカーを消去 */
+    padding: 5px; /* パディング */
+    margin: 5px 0; /* 上下の余白 */
+}
+
+
+
+/* フォームのラベル */
+form p label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* テキストフィールド */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+/* エラーメッセージ */
+.errorlist {
+    color: #ff0000;
+    list-style-type: none;
+    padding: 0;
+}
+
+/* フォームのボタン */
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 56px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+/* パスワードのヘルプテキスト */
+.form-help-text {
+    color: #666666; /* テキストの色 */
+    font-size: 12px; /* フォントサイズ */
+    /* その他のスタイル */
+}
+
+.form-help-text {
+    color: #666666; /* テキストの色 */
+    font-size: 12px; /* フォントサイズ */
+    /* その他のスタイル */
+}
+
+/* エラーメッセージのリスト */
+.errorlist {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #ffdddd; /* 薄い赤色の背景 */
+    border: 1px solid #ff0000; /* 赤色の境界線 */
+    border-radius: 5px; /* 境界線の丸み */
+    list-style-type: none; /* リストマーカーを無効化 */
+}
+
+ul {
+    list-style-type: none; /* リストのマーカー（丸点）を削除 */
+    padding-left: 0; /* デフォルトのパディングを削除 */
+}
+
+li {
+    color: #d8000c; /* エラーメッセージの色 */
+    font-size: 14px; /* フォントサイズ */
+    margin-bottom: 5px; /* リストアイテムの下のマージン */
+}
+
+.footer-copyright {
+    font-size: 0.8em;
+    color: #ccc;
+    text-align: center;
+    padding: 50px;
+    margin: 0;
+  }
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    
+}

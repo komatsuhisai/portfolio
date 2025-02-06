@@ -1,0 +1,673 @@
+body {
+    padding-top: 100px;
+    /* ヘッダーの高さに応じて調整 */
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    /* 背景色 */
+    z-index: 1000;
+    /* 他の要素より前面に表示 */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+nav {
+    text-align: right;
+}
+
+.nav-button .fa {
+    margin-right: 5px;
+}
+
+
+
+
+.top {
+    text-align: center;
+    font-size: 28px;
+    padding-bottom: 16px;
+    font-weight: bold;
+    text-align: center;
+    /* 中央揃えの追加 */
+}
+
+h1 {
+    font-size: 18px;
+    padding: 0 8px 0 8px;
+
+}
+
+h2 {
+
+    font-size: 24px;
+}
+
+.main {
+    text-align: center;
+}
+
+
+
+p {
+    font-size: small;
+}
+
+.annotation {
+    font-size: 0.7rem;
+}
+
+hr {
+    background-color: rgb(187, 145, 238);
+    height: 2px;
+    /* 水平線の太さ */
+
+
+}
+
+
+
+.signup-button {
+
+    background-color: #4CAF50;
+    /* 緑色 */
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    padding: 20px 70px;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 8px 0 8px;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+}
+
+.login-message {
+    font-size: 14px;
+    margin-right: 10px;
+    /* メッセージとボタンの間の余白 */
+}
+
+.nav-button {
+
+    color: #666666;
+    padding: 6px 16px;
+    background-color: transparent;
+    font-size: 14px;
+    margin: 0 4px 0 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.nav-button:hover,
+.signup-button-header {
+    background-color: #45a049;
+}
+
+.signup-button-header {
+
+    background-color: #4CAF50;
+    /* 緑色 */
+    color: white;
+    padding: 6px 16px;
+    font-size: 14px;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+
+}
+
+section {
+    background-color: transparent;
+    padding: 0 16px 0 16px;
+}
+
+
+
+.price_font {
+    font-size: 30px;
+    font-weight: bold;
+
+
+}
+
+.price_title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.murixyou {
+    background-color: #eee;
+}
+
+.mini {
+    background-color: rgb(205, 201, 241);
+}
+
+.standard {
+    background-color: #e2c6ff;
+}
+
+.director {
+    background-color: #d1acf8;
+}
+
+h3 {
+    font-weight: normal;
+    text-align: center;
+    padding: 0;
+    /* ブラウザによって設定されているかもしれないパディングをリセットする */
+
+}
+
+
+ul {
+    text-align: center;
+    /* 親要素を中央揃えにする */
+    list-style-type: none;
+    /* 下線（リストスタイル）を除去する */
+    padding: 0;
+    /* ブラウザによって設定されているかもしれないパディングをリセットする */
+
+}
+
+
+li {
+    font-size: 15px;
+}
+
+
+
+.carousel-container {
+    overflow-y: hidden;
+    position: relative;
+    height: 100vh;
+    /* ビューポートの高さに合わせる */
+}
+
+
+
+/* 画像を含むコンテナに対するスタイル */
+.image-container {
+    position: relative;
+    text-align: center;
+    /* テキストを中央揃えにする */
+    background-repeat: no-repeat; /* 背景画像が繰り返されないようにする */
+    background-size: cover; /* 背景画像をカバーするように設定 */
+    background-position: center; /* 背景画像を中央に配置 */
+}
+
+/* 画像の上に重ねるテキストとボタンのスタイル */
+.overlay {
+    position: absolute;
+    top: 75%;
+    /* 親要素の上から50%の位置 */
+    left: 50%;
+    /* 親要素の左から50%の位置 */
+    transform: translate(-50%, -50%);
+    /* センタリング */
+    color: white;
+    /* テキストの色 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明の黒色背景 */
+    /* その他のスタイリング */
+    padding: 20px 20px;
+    /* パディングを追加してテキストを整える */
+    width: 50%;
+    border-radius: 10px;
+    /* 角を丸くする */
+    text-align: center;
+    /* テキストを中央揃えに */
+    /* その他のスタイリング */
+    background-repeat: no-repeat; /* 背景画像が繰り返されないようにする */
+    background-size: cover; /* 背景画像をカバーするように設定 */
+    background-position: center; /* 背景画像を中央に配置 */
+}
+
+.image-container video {
+    max-width: 100%;
+    /* 最大幅を親要素の幅に合わせる */
+    height: auto;
+    /* 高さを自動調整 */
+    ;
+
+    /* 必要に応じて追加のスタイリング */
+}
+
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.price-table th,
+.price-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.price-table th {
+    background-color: #ddd;
+    color: black;
+}
+
+.price-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.price-table tr:hover {
+    background-color: #ddd;
+}
+
+.osusume {
+    background-color: #bb91ee;
+}
+
+.plan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* コンテナの中央に子要素を配置 */
+    justify-content: center;
+    /* 縦方向でも中央揃え */
+    width: 100%;
+    /* 必要に応じて幅を調整 */
+
+}
+
+.price {
+
+
+
+
+    padding: 16px 16px 0 16px;
+    margin: 5px 0;
+    /* ここを調整して上下の余白を減らす */
+    border-radius: 30px;
+    /* その他のスタイル */
+
+
+    text-align: center;
+    /* テキストを左揃えに */
+    width: 30%;
+    /* ボックスの幅を調整（必要に応じて変更） */
+    /* その他のスタイルはそのまま */
+
+
+}
+
+
+
+
+.custom-twitter-icon:before {
+    content: '𝕏';
+    /* ここに任意のテキストや文字を設定 */
+    font-family: sans-serif;
+    /* 必要に応じてフォントファミリーを設定 */
+    font-weight: bold;
+    font-size: 2rem;
+    /* アイコンのサイズ */
+    color: #fff;
+    /* アイコンの色 */
+    margin: 15px 0;
+    /* 上下の余白を追加 */
+
+}
+
+/* FontAwesomeアイコンのスタイル調整 */
+/* FontAwesomeアイコンのスタイル調整 */
+.sns-icons {
+    text-align: center;
+    /* アイコンを中央揃えにする */
+    font-size: 2rem;
+    /* アイコンのサイズを大きくする */
+    color: #bb91ee;
+    /* アイコンの色を紫に設定 */
+    margin-bottom: 10px;
+    /* フッターテキストとの間隔を設定 */
+
+}
+
+/* ブログアイコンのサイズを大きくする */
+.fa-blog {
+    font-size: 2rem;
+    /* サイズを大きくする */
+
+}
+
+/* FontAwesomeアイコンのリンクのスタイル */
+.sns-icons a {
+    margin: 0 10px;
+    /* アイコン間の余白を設定 */
+    color: inherit;
+    /* 親要素の色を継承（紫色に設定） */
+}
+
+/* FontAwesomeアイコンにホバーした時のスタイル */
+.sns-icons a:hover {
+    color: #9e7db5;
+    /* ホバー時の色を少し暗くする */
+}
+
+
+/* フッターのスタイル */
+footer {
+    background-color: #333;
+    /* 黒っぽい背景色 */
+    color: #fff;
+    /* 白っぽいテキストの色 */
+    text-align: center;
+    /* テキストを中央揃えに */
+    padding: 20px 0;
+    /* 上下のパディング */
+    margin-top: 30px;
+    /* 上部の余白 */
+
+}
+
+.footer-copyright {
+    font-size: 0.8em;
+    /* フォントサイズ */
+    color: #ccc;
+    /* テキストの色 */
+}
+
+/* SNSアイコンのスタイル */
+.sns-icons a {
+    color: #fff;
+    /* リンクの色 */
+    margin-right: 10px;
+    /* リンク間の余白 */
+    text-decoration: none;
+    /* 下線を削除 */
+}
+
+.sns-icons a:hover {
+    color: #bb91ee;
+    /* ホバー時の色 */
+}
+
+/* フッター内のリンクのスタイル */
+footer a {
+    color: #fff;
+    /* リンクの色を白色に設定 */
+    text-decoration: none;
+    /* 下線を削除 */
+    font-size: 1rem;
+}
+
+footer a:hover {
+    color: #bb91ee;
+    /* ホバー時の色をサイトのカラーテーマに合わせる */
+}
+
+/* ボディの背景色を統一する */
+body {
+    background-color: #333;
+    /* フッターと同じ背景色 */
+    /* その他のスタイル */
+}
+
+.siro {
+    background-color: #fff;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+    header h1 {
+        font-size: 24px;
+        /* サイズを大きく */
+    }
+
+    /* ログインとマイページボタンのフォントサイズを調整 */
+    .nav-button,
+    .signup-button-header {
+        font-size: 16px;
+        /* サイズを大きく */
+    }
+
+/* 動画を含むコンテナを非表示にする */
+.carousel-item video {
+    
+    height: 800px;
+}
+
+
+
+    /* 動画のコンテナの背景色やその他のスタイルを調整 */
+    .carousel-container .carousel-item .image-container {
+        background-color: #fff;
+        /* 背景色を白に設定 */
+        /* その他の必要なスタイルをここに追加 */
+    }
+
+    .main {
+        padding: 10px;
+        /* メインコンテンツのパディングを調整 */
+    }
+
+    .carousel-container,
+    .carousel-item {
+        height: auto;
+        /* カルーセルの高さを自動調整に */
+    }
+
+    footer {
+        padding: 15px 0;
+        /* フッターのパディングを調整 */
+    }
+
+    .sns-icons {
+        font-size: 1.5rem;
+        /* SNSアイコンのサイズを小さく */
+    }
+
+    
+   
+
+    /* カルーセル内のボタンのスタイル調整 */
+    .carousel-item .signup-button {
+        padding: 10px 20px;
+        /* ボタンのサイズを小さくする */
+       
+    }
+
+    /* カルーセルのアイテムの高さ調整 */
+    .carousel-container .carousel-item {
+        height: auto;
+        /* 高さを自動に設定 */
+        
+        /* 上下のパディングを追加 */
+    }
+
+
+ /* オーバーレイの位置を調整 */
+ .overlay {
+    
+    
+    
+    
+    position: absolute;
+    
+    /* 親要素の上から50%の位置 */
+    
+    /* 親要素の左から50%の位置 */
+    transform: translate(-50%, -50%);
+    /* センタリング */
+    color: white;
+    /* テキストの色 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明の黒色背景 */
+    /* その他のスタイリング */
+    padding: 20px; /* このパディングが100%の幅に収まるようにする */
+
+    /* パディングを追加してテキストを整える */
+    width: 90%;
+    border-radius: 10px;
+    /* 角を丸くする */
+    text-align: center;
+
+}
+
+
+
+
+    /* 画像コンテナのサイズを調整 */
+    .image-container {
+        width: 100%; /* コンテナの幅を100%に設定 */
+        height: auto; /* 高さを自動に設定 */
+        background-repeat: no-repeat; /* 背景画像が繰り返されないようにする */
+    background-size: cover; /* 背景画像をカバーするように設定 */
+    background-position: center; /* 背景画像を中央に配置 */
+    }
+
+    /* 画像の上に重ねるテキストとボタンのサイズを調整 */
+    .overlay .top, .overlay .signup-button {
+        font-size: 14px; /* フォントサイズを小さくする */
+    }
+
+
+    /* その他の要素に関するスタイル調整 */
+    .carousel-container, .carousel-item, .overlay {
+        margin: 0;
+        padding: 0;
+    }
+
+    .image-container img,
+    .image-container video {
+        max-width: 100%; /* 親要素の幅に合わせて最大幅を設定 */
+        height: auto; /* 高さは自動で調整されるように設定 */
+        background-repeat: no-repeat; /* 背景画像が繰り返されないようにする */
+    background-size: cover; /* 背景画像をカバーするように設定 */
+    background-position: center; /* 背景画像を中央に配置 */
+    padding: 0;
+    margin: 0;
+    }
+
+
+    .price {
+        /* ... */
+        width: 90%; /* モバイル表示で全幅を使うように変更 */
+        /* その他のスタイルはそのまま */
+    }
+    
+    header {
+        position: fixed;
+        
+        width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    right: 0;
+        background-color: #fff;
+        /* 背景色 */
+        z-index: 1000;
+        /* 他の要素より前面に表示 */
+    }
+
+    .carousel-item video {
+        width: auto;  /* 幅を自動調整にする */
+        height: 100%; /* ビューポートの高さに合わせる */
+        object-fit: cover; /* 余白なしに内容をトリミング */
+    }
+
+
+
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.image-container {
+    position: relative; /* z-indexを適用するためにpositionを指定 */
+    z-index: 1; /* 他の要素より前面に表示 */
+}
+
+.carousel-item + .carousel-item {
+    position: relative;
+    z-index: 0; /* 次の背景を後ろに表示 */
+}
+
+
+.first-image img {
+    width: 30%; /* 画像の幅をコンテナの幅に合わせる */
+    z-index: 0; /* 次の背景を後ろに表示 */
+    height: auto; /* 画像の高さを自動調整し、アスペクト比を維持 */
+}
+
+.carousel-item {
+    position: relative;
+    z-index: 0; /* 初期状態で全てのカルーセルアイテムを同じスタックレベルに */
+}
+
+.carousel-item.zenmen {
+    z-index: 2; /* 背景を前面に表示 */
+}
+
+.first-image {
+    position: relative;
+    z-index: 1; /* 最初の画像を少し前に、しかし.zenmenよりは後ろに */
+}
+
+
+.content-container {
+    max-width: 1200px; /* 最大幅を設定 */
+    width: 100%; /* ビューポートに応じてサイズ変更 */
+    margin: auto; /* 中央揃え */
+    padding: 0; /* 内側の余白 */
+}
+
+.feature-section {
+    background-repeat: no-repeat; /* 背景画像が繰り返されないようにする */
+    background-size: cover; /* 背景画像をカバーするように設定 */
+    background-position: center; /* 背景画像を中央に配置 */
+}
+
+.carousel-item, .image-container {
+    background-repeat: no-repeat; /* 背景画像が繰り返されないようにする */
+    background-size: cover; /* 背景画像をカバーするように設定 */
+    background-position: center; /* 背景画像を中央に配置 */
+    padding: 0;
+    margin: 0;
+}

@@ -1,0 +1,64 @@
+<!-- accounts/my_page.html -->
+
+{% extends 'settings/base_setting.html' %}
+{% load static %}
+{% load custom_filters %}  <!-- ここに追加 -->
+
+{% block content %}
+    <h2>{{ user.username }}さんのマイページ</h2>
+    <div class="my-page-section">
+    
+        <h3 class="section-title">現在の残り会話数</h3>
+        <p>{{ character.api_max_usage_count|default:"0" |subtract:character.api_usage_count|default:"0" }} 回</p>
+
+      
+        
+    </div>
+
+
+    
+    <div class="my-page-section">
+    
+        <h3 class="section-title">会話回数を増やす</h3>
+    
+
+
+
+        <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+<stripe-pricing-table pricing-table-id="prctbl_1OeZGxIfdFWutwbXcSRecTe0" publishable-key="{{ STRIPE_PUBLISHABLE_KEY }}">
+</stripe-pricing-table>
+<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+<stripe-pricing-table pricing-table-id="prctbl_1OlmSfIfdFWutwbXvHdyP1qv"
+publishable-key="pk_test_51OeWWfIfdFWutwbXrPE0cvcK0fvDbjwLM51hyAqGGBC10ixuKNtHfhDeuA7lGSrnaLZFYoios1fWSVrEw3zZ8uav00IZc3hNh3">
+</stripe-pricing-table>
+
+<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+<stripe-pricing-table pricing-table-id="prctbl_1OeZGxIfdFWutwbXcSRecTe0"
+publishable-key="pk_live_51OeWWfIfdFWutwbXB3t39mENQfY345ZqnvKeAVieu37D6ZGegPj7hIDow1TrZjx8z8jLoZhGrOGnd7GM1LaPlPyB00yLjJIeDL">
+</stripe-pricing-table>
+
+
+</div>
+
+    <div class="my-page-section">
+
+        <h3 class="section-title">最新のアップデート情報</h3>
+        <!-- 最新のアップデート情報をここに表示 -->
+        <p>2024/01/31<br>
+        アプリをリリースしました。</p>
+
+
+    </div>
+    <div class="my-page-section">
+
+        <h3>次回のメンテナンス予定時刻</h3>
+        <p>現在のお知らせはありません。</p>
+    </div>
+    <div class="my-page-section">
+
+        <h3 class="section-title">運営からのお知らせ</h3>
+        <!-- 運営からのお知らせをここに表示 -->
+        <p>開発者のXにて最新情報を発信中です。</p>
+        <a class="twitter-timeline" data-width="800" data-height="400" data-theme="light" href="https://twitter.com/26UGI?ref_src=twsrc%5Etfw">Tweets by 26UGI</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+{% endblock %}

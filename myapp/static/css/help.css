@@ -1,0 +1,156 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header, main, footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+
+.faq-container {
+    margin: 0;
+}
+
+.faq-question, .faq-section-question {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s;
+    border-bottom: 1px solid #0056b3;
+}
+
+.faq-question:hover, .faq-section-question:hover {
+    background-color: #0056b3;
+}
+
+.faq-answer {
+    padding: 15px;
+    background-color: #f4f4f4;
+    display: none;
+    overflow: hidden;
+    border-left: 4px solid #007bff;
+}
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    /* コンテナ、ヘッダー、メイン、フッターのスタイル調整 */
+    header, main, footer {
+        padding: 10px;
+        max-width: none; /* 最大幅の制限を解除 */
+    }
+
+    /* タイトルとセクションタイトルのフォントサイズ調整 */
+    h1{
+        font-size: 24px; /* タイトルのフォントサイズを小さく調整 */
+    }
+    
+    h2, h3 {
+        font-size: 18px; /* タイトルのフォントサイズを小さく調整 */
+        margin-top: 10px; /* タイトルの上の余白を適切に調整 */
+    }
+
+    /* FAQセクションの質問ボタンと回答エリアのスタイル調整 */
+    .faq-question, .faq-section-question {
+        font-size: 16px; /* FAQの質問のフォントサイズを調整 */
+        padding: 10px; /* パディングを調整 */
+    }
+    .faq-answer {
+        font-size: 14px; /* FAQの回答のフォントサイズを調整 */
+        padding: 10px; /* パディングを調整 */
+    }
+
+    /* 「インデックスに戻る」ボタンのスタイル調整 */
+ 
+    .back-button {
+        margin-right: 10px; /* 右の余白を追加 */
+        padding-right: 10px; /* 右の内側余白を追加 */
+    }
+
+    /* セクションの下の余白を調整 */
+    section {
+        margin-bottom: 15px;
+    }
+
+    /* 画像がレスポンシブになるように調整 */
+    img {
+        width: 100%; /* 画像を親要素の100%の幅に設定 */
+        height: auto; /* 高さを自動で調整 */
+    }
+
+    /* ボタンやフォーム要素の幅を親要素の100%に設定 */
+    .back-button, .faq-question, .faq-section-question, .faq-answer, input[type="submit"], button {
+        width: 100%;
+    }
+
+    /* フォーム要素のフォントサイズとパディングを調整 */
+    input, textarea, select {
+        font-size: 16px; /* フォーム要素のフォントサイズを調整 */
+        padding: 10px; /* パディングを調整 */
+    }
+}
+
+
+
+/* 既存のスタイル */
+/* ... */
+
+/* 「インデックスに戻る」ボタンのスタイリング */
+.back-to-index {
+    text-align: center;
+    
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+h1 {
+margin-top:10px;
+}
+
+.setumei{
+    font-size: 14px;
+    color: #686868;
+}

@@ -1,0 +1,166 @@
+<!-- character_form.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>アバター編集</title>
+    <link rel="stylesheet" href="{% static 'css/avatar_edit_style.css' %}" /> <!-- アバター編集用のCSSファイル -->
+    <!-- その他の必要なCSSファイルやJavaScriptファイルへのリンク -->
+  </head>
+  <body>
+    <div class="form-container">
+      <form id="avatar-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if form.errors %}
+          <div class="form-errors">
+            <p>以下のエラーを修正してください：</p>
+            {{ form.errors }}
+          </div>
+        {% endif %}
+
+
+
+
+ 
+
+
+<!-- 背景色プレビューの要素を追加 -->
+<div class="image-upload-block">
+  <label for="selected_color">背景色:</label>
+  <input type="color" id="selected_color" name="selected_color" value="{{ character.selected_color|default:'#ffffff' }}" onchange="updatePageBackground()" />
+  <div id="color-preview" class="color-preview" style="background-color: {{ character.selected_color|default:'#ffffff' }}"></div>
+  <input type="checkbox" id="clear_background_color" name="clear_background_color" />
+  <label for="clear_background_color">クリア</label>
+</div>
+        
+<!-- エラーメッセージの表示 -->
+{% if form.selected_color.errors %}
+  <div class="form-errors">
+    <p>{{ form.selected_color.errors }}</p>
+  </div>
+{% endif %}
+
+
+        {% comment %} <div class="background-selection-block">
+          {{ form.background_choice }}
+      </div> {% endcomment %}
+
+
+
+
+        <!-- 体の画像フィールド -->
+        <div class="image-upload-block">
+          <label for="id_body_image">体の画像:</label>
+          {{ form.body_image }}
+          {% if form.body_image.value %}
+            <img src="{{ form.body_image.value.url }}" alt="Body Image" class="thumbnail" />
+          {% endif %}
+        </div>
+
+        <!-- 閉じた目の画像フィールド -->
+        <div class="image-upload-block">
+          <label for="id_closed_eyes_image">閉じた目の画像:</label>
+          {{ form.closed_eyes_image }}
+          {% if form.closed_eyes_image.value %}
+            <img src="{{ form.closed_eyes_image.value.url }}" alt="Closed Eyes Image" class="thumbnail" />
+          {% endif %}
+        </div>
+
+        <!-- 開いた目の画像フィールド -->
+        <div class="image-upload-block">
+          <label for="id_open_eyes_image">開いた目の画像:</label>
+          {{ form.open_eyes_image }}
+          {% if form.open_eyes_image.value %}
+            <img src="{{ form.open_eyes_image.value.url }}" alt="Open Eyes Image" class="thumbnail" />
+          {% endif %}
+        </div>
+
+        <!-- 開いた口の画像フィールド -->
+        <div class="image-upload-block">
+          <label for="id_open_mouth_image">開いた口の画像:</label>
+          {{ form.open_mouth_image }}
+          {% if form.open_mouth_image.value %}
+            <img src="{{ form.open_mouth_image.value.url }}" alt="Open Mouth Image" class="thumbnail" />
+          {% endif %}
+        </div>
+
+        <!-- 半開きの口の画像フィールド -->
+        <div class="image-upload-block">
+          <label for="id_half_open_mouth_image">半開きの口の画像:</label>
+          {{ form.half_open_mouth_image }}
+          {% if form.half_open_mouth_image.value %}
+            <img src="{{ form.half_open_mouth_image.value.url }}" alt="Half Open Mouth Image" class="thumbnail" />
+          {% endif %}
+        </div>
+
+        <!-- 閉じた口の画像フィールド -->
+        <div class="image-upload-block">
+          <label for="id_closed_mouth_image">閉じた口の画像:</label>
+          {{ form.closed_mouth_image }}
+          {% if form.closed_mouth_image.value %}
+            <img src="{{ form.closed_mouth_image.value.url }}" alt="Closed Mouth Image" class="thumbnail" />
+          {% endif %}
+        </div>
+
+        <!-- ユーザーのカスタム背景画像アップロード -->
+        <div class="image-upload-block">
+          <label for="id_background_image">あなたの背景画像をアップロード:</label>
+          {{ form.background_image }}
+          {% if form.background_image.value %}
+            <img src="{{ form.background_image.value.url }}" alt="Your Background Image" class="thumbnail" />
+          {% endif %}
+        </div>
+<!-- ヘッダー風のボタンコンテナ -->
+<div class="form-header">
+  <a href="{% url 'index' %}" class="header-button index">インデックスに戻る</a>
+  <button type="submit" class="header-button save">保存</button>
+  <button type="submit" name="reset_defaults" value="1" class="header-button reset">デフォルトに戻す</button>
+</div>
+</form>
+</div>
+
+
+
+
+
+
+<script>
+  // ページ読み込み時に呼び出す関数
+  window.addEventListener('load', function() {
+    // 背景色選択フィールドの要素を取得
+    const selectedColorInput = document.getElementById('selected_color');
+
+    // 背景色プレビューの要素を取得
+    const colorPreview = document.getElementById('color-preview');
+
+    // 背景色選択フィールドの値が変更されたときに呼び出す関数
+    selectedColorInput.addEventListener('input', function() {
+      // 選択された背景色を取得
+      const selectedColor = selectedColorInput.value;
+
+      // 背景色プレビューの背景色を設定
+      colorPreview.style.backgroundColor = selectedColor;
+    });
+
+    // クリアボタンの要素を取得
+    const clearButton = document.getElementById('clear_background_color');
+
+    // クリアボタンがクリックされたときに呼び出す関数
+    clearButton.addEventListener('click', function() {
+      // 背景色選択フィールドの値をリセット（白色に戻す）
+      selectedColorInput.value = '#ffffff';
+
+      // 背景色プレビューの背景色もリセット
+      colorPreview.style.backgroundColor = '#ffffff';
+    });
+  });
+</script>
+</body>
+</html>

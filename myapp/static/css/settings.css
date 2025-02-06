@@ -1,0 +1,166 @@
+/* settings.css */
+/* 基本スタイル */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+nav a.active, nav a:hover {
+    color: white;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button, a {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+button:hover, a:hover {
+    background-color: #45a049;
+}
+
+/* メディアクエリ */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    form {
+        width: 90%;
+        padding: 10px;
+    }
+
+    button, a {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
+
+/* my_page.css */
+
+/* マイページの基本スタイル */
+.my-page-section {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* 適切な幅に調整 */
+}
+
+.section-title {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+/* テキストコンテンツのスタイル */
+.my-page-section p {
+    line-height: 1.6;
+    color: #666;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .my-page-section {
+        width: 90%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+
+    .section-title {
+        font-size: 1.1em;
+    }
+}
+
+/* リンクとボタンのスタイル */
+.my-page-section a, .my-page-section button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.my-page-section a:hover, .my-page-section button:hover {
+    background-color: #45a049;
+}
+

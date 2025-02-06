@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>特定商取引法に基づく表記</title>
+    <!-- スタイルシートやスクリプトのリンク -->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/help.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <header>
+        <!-- ヘッダー内容、ナビゲーションバーなど -->
+          <!-- 「インデックスに戻る」ボタンの追加 -->
+          <div class="back-to-index">
+            <a href="{% url 'home' %}" class="back-button">インデックスに戻る</a>
+        </div>
+    </header>
+<section>
+    <main>
+        <h1>特定商取引法に基づく表記</h1>
+
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>販売業社の名称</th>
+                    <td>小松久威</td>
+                </tr>
+                <tr>
+                    <th>所在地</th>
+                    <td>請求があったら遅滞なく開示します</td>
+                </tr>
+                <tr>
+                    <th>電話番号</th>
+                    <td>請求があったら遅滞なく開示します</td>
+                </tr>
+                <tr>
+                    <th>メールアドレス</th>
+                    <td>info@26g.me</td>
+                </tr>
+                <tr>
+                    <th>運営統括責任者</th>
+                    <td>小松久威</td>
+                </tr>
+                <tr>
+                    <th>追加手数料等の追加料金</th>
+                    <td>ありません。</td>
+                </tr>
+                <tr>
+                    <th>交換および返品（返金ポリシー）</th>
+                    <td>
+                        商品の性質上、返品及び交換は対応しかねます。当サイトのアプリはご購入前に、試用版にてプログラムの互換性や機能詳細についてご確認いただくことができます。当サイトではこれらの条件を前提として販売していますので、
+                        返品・交換対応をしかねる点ご了承くださいますようお願いいたします。</td>
+                </tr>
+
+
+
+                <tr>
+                    <th>引渡時期</th>
+                    <td>注文後すぐにご利用いただけます。</td>
+                </tr>
+                <tr>
+                    <th>受け付け可能な決済手段</th>
+                    <td>当店では、以下の決済方法をご利用いただけます。
+
+                        クレジットカード、
+                        
+                        
+                        Apple Pay、
+                        Google Pay。
+                        各決済方法に関する詳細は、お支払い手続きの際にご案内いたします。Apple Pay及びGoogle Payをご利用の際は、対応するスマートフォンやタブレットが必要です。</td>
+                </tr>
+                <tr>
+                    <th>決済期間</th>
+                    <td>ただちに処理されます。</td>
+                </tr>
+                <tr>
+                    <th>販売価格</th>
+                    <td>98円、298円、598円のいずれかとなります。</td>
+                </tr>
+             
+
+
+            </tbody>
+        </table>
+    </section>
+
+
+
+        
+</body>
+</html>

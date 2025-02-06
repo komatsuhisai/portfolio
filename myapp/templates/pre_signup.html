@@ -1,0 +1,75 @@
+<!-- pre_signup.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+        
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規登録 - MyV</title>
+    <!-- スタイルシートへのリンク -->
+    <link rel="stylesheet" href="{% static './css/pre_signup.css' %}">
+</head>
+<body>
+
+    
+      <header>
+        <h1><a href="{% url 'home' %}">MyV</a></h1>
+        <hr>
+      </header>
+      <hr>
+    
+
+    <main>
+        <section>
+            <h2>新規登録</h2>
+            <section class="terms">
+              <p>アカウントを作成することにより、<a href="terms_of_service.html">利用規約</a> および <a href="privacy_policy.html">プライバシーポリシー</a>に同意するものとします。</p>
+          </section>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+                <!-- カスタムエラーメッセージの表示 -->
+                {% if error_message %}
+                    <div class="error-message">
+                        <p>{{ error_message }}</p>
+                    </div>
+                {% endif %}
+                
+                <button type="submit">事前登録</button>
+            </form>
+
+            {% if form.errors %}
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+
+        <section class="signup">
+            <p>すでにアカウントをお持ちですか？ <a href="login.html">ログイン</a></p>
+        </section>
+    </main>
+
+    
+      <footer>
+        <p class="footer-copyright">
+          © 2023 MyV. All Rights Reserved. Developed by TUSMUGI Yuri.
+        </p>
+      </footer>
+    
+
+    <!-- JavaScriptファイルへのリンク -->
+    
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!-- setting/settings.html -->
+{% extends './base_setting.html' %}
+
+{% block content %}
+<h2>ユーザー設定</h2>
+
+
+
+
+<form method="post">
+    {% csrf_token %}
+    <!-- 現在のユーザー名の表示 -->
+    <div>
+        <label for="current_username">現在のユーザー名:</label>
+        <input type="text" id="current_username" name="current_username" value="{{ request.user.username }}" disabled>
+    </div>
+
+  <!-- ユーザー名変更ページへのリンク -->
+  <div>
+    <a href="{% url 'change_username' %}">ユーザー名を変更する</a>
+</div>
+
+   
+
+
+    <!-- 現在のメールアドレスの表示 -->
+    <div>
+        <label for="current_email">現在のメールアドレス:</label>
+        <input type="email" id="current_email" name="current_email" value="{{ request.user.email }}" disabled>
+    </div>
+
+    <!-- メールアドレス変更へのリンク -->
+    <div>
+        <a href="{% url 'change_email' %}">メールアドレスを変更する</a>
+    </div>
+
+
+
+     <!-- パスワードリセットへのリンク -->
+     <div>
+        <a href="{% url 'password_reset' %}">パスワードをリセットする</a>
+    </div>
+    
+    <!-- インデックスページへのリンク -->
+    <div>
+        <a href="{% url 'index' %}">変更せずインデックスに戻る</a>
+    </div>
+</form>
+{% endblock %}
+
+

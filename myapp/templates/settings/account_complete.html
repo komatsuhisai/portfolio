@@ -1,0 +1,27 @@
+<!-- templates/account_complete.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アカウントのアクティベーション完了</title>
+    <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="{% static 'css/voice.css' %}">
+    <title>アカウントのアクティベーション完了</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h2><a href="{% url 'home' %}">MyV</a></h2>
+        </div>
+    </header>
+
+    <div class="container main-content">
+        <h1>アカウントのアクティベーションが完了しました！</h1>
+        <p>アカウントのセットアップが正常に完了しました。以下のリンクからサイトをお楽しみください。</p>
+        <a href="{% url 'home' %}">ホームページへ</a>
+        <a href="{% url 'login' %}">ログインページへ</a>
+    </div>
+</body>
+</html>

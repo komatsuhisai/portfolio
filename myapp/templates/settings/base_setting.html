@@ -1,0 +1,54 @@
+<!-- setting/base_setting.html -->
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/settings.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 他のhead要素 -->
+</head>
+<body>
+    <header>
+        <!-- 設定ページ用のヘッダー内容 -->
+        <div>
+            <a href="{% url 'index' %}">インデックスに戻る</a>
+        </div>
+        
+<!-- マイページへのリンクを追加 -->
+
+</li>
+
+        <nav>
+          
+
+
+            <ul class="nav nav-tabs">
+
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'my_page' %}active{% endif %}" href="{% url 'my_page' %}">マイページ</a>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'user_settings' %}active{% endif %}" href="{% url 'user_settings' %}">ユーザー設定</a>
+             
+                {% comment %} <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'payment_info' %}active{% endif %}" href="{% url 'payment_info' %}">お支払情報</a>
+                </li> {% endcomment %}
+            </ul>
+        </nav> 
+    </header>
+    {% block content %}
+    <!-- 継承先のコンテンツがここに表示される -->
+    {% endblock %}
+    <!-- コンテンツブロック -->
+    <footer>
+        <!-- フッター -->
+    </footer>
+
+    <!-- スクリプト -->
+</body>
+</html>

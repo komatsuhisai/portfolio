@@ -1,0 +1,781 @@
+/* index.css */
+
+
+
+/* エラーハンドリング */
+.error-message {
+  color: red;
+}
+
+/* 表示エリア関連 */
+#chat_area {
+  position: fixed;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+  bottom: 50px;
+  /* 入力欄の高さ分だけ上げる */
+  height: 200px;
+  /* ここで高さを指定します */
+  overflow-y: auto;
+  /* 縦方向にスクロール可能にします */
+  display: flex;
+  flex-direction: column-reverse;
+  /* 新しいメッセージを下に追加 */
+  z-index: 3;
+  border: 0;
+
+}
+
+.message {
+  max-width: 70%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+  margin-left: auto;
+  /* ユーザーメッセージを右に寄せる */
+  margin-right: auto;
+  /* ボットメッセージを左に寄せる */
+  background-color: transparent;
+  /* 背景色を透明に */
+  font-size: 0.8em;
+  /* 文字サイズを小さく */
+}
+
+.user-message {
+  background-color: rgba(78, 212, 76, 0.8);
+  /* #4ed44c の半透明バージョン */
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+  /* 右下の角を丸くしない */
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.bot-message {
+  background-color: rgba(221, 221, 221, 0.8);
+  /* #ddd の半透明バージョン */
+  color: black;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+  /* 左下の角を丸くしない */
+  margin-left: 0;
+  margin-right: auto;
+}
+
+
+.top {
+  text-align: center;
+}
+
+
+
+/* 表示関連 */
+.character {
+  position: absolute;
+  width: 512px;
+  /* オリジナルの幅 */
+  height: 512px;
+  /* オリジナルの高さ */
+  margin-bottom: 0;
+  /* フォームとの間隔 */
+  /* transform: scale(1.0); */
+  /* 全体のサイズを50%に縮小 */
+  transform-origin: top left;
+  /* スケールの基点を左上に設定 */
+  z-index: -1;
+  /* 背景よりも前面に表示 */
+  cursor: move;
+  /* ドラッグ可能であることを示すカーソル */
+  transition: transform 0.1s;
+  /* 拡大縮小のトランジションを滑らかにする */
+}
+
+.character-part {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 10;
+  /* 背景よりも高い値 */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
+
+/* プレースホルダーのスタイル */
+.input-field::placeholder {
+  color: #ccc;
+  /* プレースホルダーの文字色 */
+  opacity: 1;
+  /* プレースホルダーを常に見えるように */
+  text-align: center;
+  /* プレースホルダーのテキストを中央寄せに */
+}
+
+
+
+/* 以下は、画像とフォームが重なってしまう問題に対処するために追加 */
+.character+.chat-form-container {
+  clear: both;
+  /* フロートしている要素をクリア */
+  margin-top: 0px;
+  /* 画像の下に配置 */
+}
+
+/* 送信ボタンのスタイル */
+.submit-button {
+  margin-left: 10px;
+  /* ボタンとテキストエリアの間隔 */
+  padding: 10px 20px;
+  /* ボタンのパディング */
+  border: none;
+  /* ボーダーを削除 */
+  background-color: transparent;
+  /* ボタンの背景色、ChatGPTの青色に近い色 */
+  color: white;
+  /* ボタンのテキスト色 */
+  border-radius: 20px;
+  /* ボタンの角を丸くする */
+  cursor: pointer;
+  /* ホバーしたときのカーソルを指に */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  /* 軽いシャドウを追加 */
+  transition: background-color 0.3s, box-shadow 0.3s;
+  /* スムーズな色とシャドウの遷移を追加 */
+}
+
+/* 送信ボタンのホバー時のスタイル */
+.submit-button:hover {
+  background-color: #357abd;
+  /* ホバー時の背景色を少し暗く */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* ホバー時にシャドウを大きく */
+}
+
+.audio-controls {
+  display: flex;
+  flex: 0 0 auto;
+  /* 固定幅 */
+}
+
+.toggle-audio {
+  /* 音声のオンオフボタンのスタイル */
+  margin-right: 10px;
+  /* スライダーとの間隔 */
+}
+
+
+
+.toggle-audio {
+  display: none;
+  /* ボタンを非表示にする */
+}
+
+.toggle-audio.active {
+  display: block;
+  /* アクティブな時だけ表示する */
+}
+
+.toggle-audio {
+  background: transparent;
+  /* 背景を透明に */
+  color: white;
+  /* アイコンの色を白に */
+  border: none;
+  /* ボーダーを削除 */
+  outline: none;
+  /* アウトラインを削除 */
+  cursor: pointer;
+  /* カーソルを指に */
+}
+
+/* スピーカーアイコンのアクティブ時のスタイル */
+.toggle-audio.active {
+  display: block;
+  /* アクティブな時だけ表示する */
+}
+
+.loader {
+  display: none;
+  /* デフォルトでは非表示にする */
+  position: fixed;
+  /* 画面の中央に表示 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  /* フォームより前面に表示 */
+
+  /* ローダーのサイズと色 */
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #3498db;
+  /* 上側のボーダーの色を明るくする */
+  border-radius: 50%;
+  /* 円形にする */
+
+  /* アニメーション */
+  animation: spin 1s linear infinite;
+}
+
+/* アニメーションのキーフレーム */
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* アクティブ状態のスタイル */
+#mic-button.active {
+  color: white;
+  /* オン状態のときの色 */
+}
+
+/* コンソールの表示をするエラーフォーム */
+.error-message {
+  position: fixed;
+  bottom: 50px;
+  color: red;
+  margin-top: 20px;
+  text-align: center;
+  display: none;
+  /* デフォルトでは非表示 */
+  z-index: 4000;
+}
+
+.user-uploaded-image {
+  z-index: 3;
+}
+
+#mouth-image {
+
+  z-index: 9;
+}
+
+
+
+#eye-image {
+  z-index: 10;
+  /* 他の要素よりも高い値に設定 */
+}
+
+.user-mouth {
+  z-index: 9;
+}
+
+/* .background {
+  width: 100%;
+  z-index: -100;
+  
+} */
+
+body {
+
+  background-size: cover;
+  /* 画像をコンテナにフィットさせる */
+  background-position: center;
+  /* 画像を中央に配置 */
+  background-repeat: no-repeat;
+  /* 画像の繰り返しを防止 */
+  background-attachment: fixed;
+  /* 背景をスクロールに固定 */
+  margin: 0;
+  padding: 0;
+}
+
+.input-field::placeholder {
+  text-align: center;
+}
+
+.input-field::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.input-field:-moz-placeholder {
+  text-align: center;
+}
+
+.input-field::-moz-placeholder {
+  text-align: center;
+}
+
+.input-field:-ms-input-placeholder {
+  text-align: center;
+}
+
+.chat-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+#mic-button {
+  background: transparent;
+  /* 背景を透明にする */
+  border: none;
+  /* ボーダーを削除 */
+  outline: none;
+  /* アウトラインを削除 */
+  cursor: pointer;
+  /* カーソルを指にする */
+  color: white;
+  /* アイコンの色を白に設定 */
+  font-size: 24px;
+  /* アイコンのサイズ（適宜調整してください） */
+  padding: 10px;
+  /* パディングを設定 */
+}
+
+/* FontAwesome アイコンに対するスタイル */
+#mic-button .fas {
+  color: white;
+  /* アイコンの色を白に設定 */
+  /* 必要に応じて他のスタイリングを追加 */
+}
+
+.input-field {
+  flex-grow: 1;
+  /* 残りのスペースを最大限に使用 */
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+.submit-button {
+  flex: 0 0 auto;
+  /* 固定幅 */
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.audio-controls {
+  flex: 0 0 auto;
+  /* 固定幅 */
+  display: flex;
+  align-items: center;
+}
+
+.toggle-audio,
+.volume-slider {
+  margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+.header {
+  position: fixed;
+  /* ヘッダーを固定位置に設定 */
+  top: 0;
+  /* 画面の上部に配置 */
+  left: 0;
+  /* 画面の左端に配置 */
+  width: 100%;
+  /* 幅を画面幅いっぱいに設定 */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 半透明の黒色背景 */
+  color: white;
+  /* テキストとアイコンの色を白に */
+  padding: 10px 20px;
+  /* 上下と左右のパディング */
+  display: flex;
+  /* フレックスボックスを使用 */
+  align-items: center;
+  /* アイテムを中央に揃える */
+  justify-content: space-between;
+  /* アイテムを均等に配置 */
+  z-index: 10000;
+  /* 他の要素よりも前面に表示 */
+
+
+}
+
+.header a {
+  color: white;
+  /* リンクの色を白に */
+  text-decoration: none;
+  /* 下線を削除 */
+  margin-right: 40px;
+  /* リンク間の間隔 */
+  font-size: 16px;
+  /* フォントサイズ */
+  display: flex;
+  /* アイコンとテキストの整列のため */
+  align-items: center;
+  /* 中央揃え */
+}
+
+.header i {
+  margin-right: 5px;
+  /* アイコンとテキストの間隔 */
+}
+
+.background {
+  z-index: -1;
+  /* キャラクターよりも低い値 */
+}
+
+.character-part.background {
+  position: fixed;
+  /* 画像を固定位置に設定 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 画像をカバーとして表示 */
+  z-index: -10;
+  /* 他の要素の背後に配置 */
+}
+
+/* 既存のCSSコード */
+
+/* サイドバーのスタイル */
+.sidebar {
+  position: fixed;
+  right: 0;
+  /* 右端に設定 */
+  top: 50%;
+  /* 画面の縦軸で中央に */
+  transform: translateY(-50%);
+  /* Y軸方向に50%ずらして中央寄せ */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 中央揃え */
+}
+
+/* サイドバー内のアイコンスタイル */
+.sidebar-icon {
+  background-color: white;
+  color: rgb(64, 64, 64);
+  border-radius: 50%;
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* 影を追加して立体感を出す */
+}
+
+.sidebar-icon i {
+  font-size: px;
+}
+
+
+/* 既存のCSSコードの続き */
+
+
+
+
+
+
+
+
+
+
+/* スクリーン幅が600px以下のデバイスに適用 */
+@media screen and (max-width: 600px) {
+
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    max-width: 599px; /* または適切な最大幅 */
+    z-index: 1000; /* 必要に応じて適切な値に設定 */
+    /* その他のスタイリング */
+  }
+
+  .header a {
+    font-size: 14px; /* 固定のフォントサイズ */
+    /* リンク内のテキストのフォントサイズを0にする */
+  }
+
+  .header a i {
+    font-size: 24px; /* 固定のアイコンサイズ */
+
+  }
+
+
+
+  .sidebar-icon {
+  
+    width: 40px; /* 固定の幅 */
+    height: 40px; /* 固定の高さ */
+  }
+
+
+
+
+
+  .submit-button {
+
+    font-size: 20px;
+    
+    /* ボタンのフォントサイズを大きく */
+  }
+
+  .toggle-mic i {
+    font-size: 24px;
+    padding: 0;
+    /* アイコンのサイズを大きく設定 */
+    /* padding: 0.5rem; ボタンの内側のスペースを増やす */
+    /* ボタンのその他のスタイルもここで調整 */
+  }
+
+  .sidebar-icon i {
+    font-size: 36px;
+    /* アイコンのフォントサイズを調整 */
+
+  }
+
+  /* その他の要素に対するスタイルの調整 */
+  .character {
+    position: absolute;
+    width: 512px;
+    /* オリジナルの幅 */
+    height: 512px;
+    /* オリジナルの高さ */
+    margin-bottom: 0;
+    /* フォームとの間隔 */
+    
+    /* 全体のサイズを50%に縮小 */
+    
+    /* スケールの基点を左上に設定 */
+    z-index: -1;
+    /* 背景よりも前面に表示 */
+    cursor: move;
+    /* ドラッグ可能であることを示すカーソル */
+    transition: transform 0.1s;
+    /* 拡大縮小のトランジションを滑らかにする */
+  }
+
+
+
+  .input-field {
+    /* 既存のスタイル */
+    flex-grow: 2; /* 利用可能なスペースを最大限に使用 */
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    /* テキストのサイズを大きくする */
+    font-size: 1em;
+    /* または好みのサイズ */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* プレースホルダーのテキストスタイル */
+  .input-field::placeholder {
+    color: #ccc;
+    opacity: 1;
+    text-align: center;
+    font-size: 1em;
+
+    /* プレースホルダーのフォントサイズも同様に設定 */
+  }
+
+  /* ブラウザごとのプレースホルダーのスタイル */
+  .input-field::-webkit-input-placeholder {
+    font-size: 1em;
+  }
+
+  .input-field:-moz-placeholder {
+    font-size: 1em;
+  }
+
+  .input-field::-moz-placeholder {
+    font-size: 1em;
+  }
+
+  .input-field:-ms-input-placeholder {
+    font-size: 1em;
+  }
+
+  .sidebar {
+    position: fixed;
+    right: 10px;
+  
+    /* 下端からの距離、インプットフィールドの上あたり */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* その他のスタイリング... */
+    /* topの値をリセット */
+    
+    /* 下端からの余白を設定 */
+    transform: translateY(-50%); /* Y軸方向に50%ずらして中央寄せ */
+
+
+    top:50%
+  }
+
+  .chat-form-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 500px; /* または適切な最大幅 */
+    z-index: 1000; /* 必要に応じて適切な値に設定 */
+    /* その他のスタイリング */
+  }
+
+  .sidebar {
+    position: fixed;
+    right: 10px;
+    
+  }
+
+  /* その他のスタイル */
+
+  .container {
+    position: relative; /* この要素を基準に子要素を配置 */
+    width: 100%; /* または固定幅 */
+    height: 100vh; /* 画面の高さに合わせる */
+    overflow: hidden; /* はみ出た部分を隠す */
+  }
+  
+  .character {
+    /* その他のスタイル設定 */
+    position: absolute;
+    top: 0;
+ 
+    z-index: 1; /* 必要に応じて調整 */
+  }
+  
+  .mobile-hide{
+    display: none;
+    
+  }
+  .audio-controls {
+    flex-grow: 1; /* 適切なスペースを占める */
+    justify-content: flex-end; /* コントロールを右に寄せる */
+    margin-right: 5px; /* 送信ボタンとの間隔 */
+  }
+
+ 
+  .toggle-audio {
+    margin-right: 10px; /* 余白を調整 */
+  }
+
+
+
+  .submit-button {
+    flex: 0 0 auto; /* 固定サイズ */
+  }
+
+
+
+
+    .chat-form-container {
+      justify-content: flex-end; /* 要素を右端に揃える */
+      
+    }
+  
+    .submit-button {
+      margin-right: -50px; /* マージンを0に設定して隙間をなくす */
+      border: none;
+      background-color: transparent; /* 完全に透明な背景色 */
+      border: none; /* 枠線を削除 */
+      box-shadow: none; /* 影を削除 */
+      padding: 0;
+      z-index: 100; /* 他の要素よりも前面に表示されるようにz-indexを設定 */
+
+    }
+  
+    .audio-controls {
+      flex-grow: 1; /* 残りのスペースを全て埋める */
+      justify-content: flex-end; /* ボリュームコントロールを右に寄せる */
+    }
+  
+    .volume-slider {
+      width: 50%; /* スライダーの幅を自動に設定して隙間を調整 */
+      margin-left: 5px; /* 左のマージンを調整して隙間を作る */
+    }
+
+    
+
+  
+
+}
+
+
+
+
+
+
+#resetCharacterButton{
+  position: absolute;
+  top:400px
+}
+
+/* スクリーン幅が601px以上のデバイスに適用 */
+@media screen and (min-width: 601px) {
+  .container {
+    position: relative; /* この要素を基準に子要素を配置 */
+    width: 100%; /* または固定幅 */
+    height: 100vh; /* 画面の高さに合わせる */
+    overflow: hidden; /* はみ出た部分を隠す */
+  }
+  
+  .character {
+    /* その他のスタイル設定 */
+    position: absolute;
+    top: 0;
+    left: 50%; /* 中央に配置する場合 */
+    transform: translateX(-50%); /* 中央寄せのための調整 */
+    z-index: 0; /* 必要に応じて調整 */
+  }
+
+ 
+
+}
+

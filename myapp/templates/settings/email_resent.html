@@ -1,0 +1,17 @@
+<!-- email_resent.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8">
+    <title>メール送信完了</title>
+    
+</head>
+<body>
+    <h1>メールを再送しました</h1>
+    <p>指定されたメールアドレスに、アカウントの確認メールを再送しました。</p>
+    <p>メールに記載されたリンクをクリックして、メールアドレスの確認を完了させてください。</p>
+    <p>もしメールが届かない場合は、迷惑メールフォルダを確認するか、<a href="{% url 'resend_email' user.id %}">ここをクリック</a>してください。</p>
+</body>
+</html>

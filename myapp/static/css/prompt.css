@@ -1,0 +1,200 @@
+/* prompt.css */
+/* 基本スタイル */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tablinks {
+    background-color: #eee;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: background-color 0.3s;
+}
+
+.tablinks:hover {
+    background-color: #ddd;
+}
+
+.tablinks.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+/* ボタンのスタイル */
+button, input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* ラジオボタンのカスタムスタイル */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+label {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* ラジオボタンのラベル */
+label:hover {
+    color: #4CAF50;
+}
+
+.tablinks {
+    background-color: #333;
+}
+
+/* レスポンシブデザイン */
+
+
+/* テキストエリアのスタイル */
+textarea {
+    width: 100%; /* 幅を100%に設定 */
+    height: 150px; /* 高さを調整 */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* パディングとボーダーを幅と高さに含める */
+}
+
+/* prompt.css */
+
+/* h4を中央寄せにする */
+h4 {
+    text-align: center;
+}
+
+/* hrのスタイルを設定（サイトカラーの紫） */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #8a2be2; /* サイトカラーの紫 */
+}
+
+/* ラジオボタンの行間を空ける */
+input[type="radio"] {
+    margin-bottom: 10px; /* 行間のスペース */
+}
+
+/* プロンプトを保存、クリア、デフォルトに戻すボタンのスタイル */
+input[type="submit"], button[type="button"] {
+    margin: 5px; /* ボタン間の隙間 */
+    padding: 5px 10px; /* ボタン内のパディング */
+    border: none; /* ボーダーを削除 */
+    cursor: pointer; /* カーソルをポインターに */
+}
+
+/* プロンプトを保存ボタンの色 */
+input[type="submit"] {
+    background-color: #4caf50; /* 緑色 */
+    color: white;
+}
+
+/* クリアボタンの色 */
+button[type="button"]:nth-child(1) {
+    background-color: #f44336; /* 赤色 */
+    color: white;
+}
+
+/* デフォルトに戻すボタンの色 */
+button[type="button"]:nth-child(2) {
+    background-color: #ffeb3b; /* 黄色 */
+    color: black;
+}
+
+h4 {
+    text-align: center;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background-color: #800080; /* 紫色 */
+  }
+
+
+
+
+  .form-buttons button {
+    margin-right: 10px; /* ボタン間の隙間 */
+}
+
+/* 保存ボタンの色 */
+.save-button {
+  background-color: #4CAF50; /* 緑色 */
+  color: white;
+}
+
+/* クリアボタンの色 */
+.clear-button {
+  background-color: #f44336; /* 赤色 */
+  color: white;
+}
+
+/* デフォルトに戻すボタンの色 */
+.default-button {
+  background-color: #008CBA; /* 青色 */
+  color: white;
+}
+
+/* PCビューでラジオボタンを横に並べる */
+label {
+    display: inline-block; /* 横並びにする */
+    margin-right: 20px;
+    cursor: pointer;
+    text-align: center; /* 中央寄せ */
+}
+
+
+
+/* モバイルビューでラジオボタンを縦に並べる */
+@media screen and (max-width: 600px) {
+    .tab {
+        flex-direction: column;
+    }
+    
+   
+}
+
+.prompt_rajio{
+    text-align: center;
+}

@@ -1,0 +1,152 @@
+<!-- user_prompt_form.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prompt設定</title>
+    <link rel="stylesheet" href="{% static 'css/prompt.css' %}">
+</head>
+<body>
+    <div class="header">
+        <a href="{% url 'index' %}">インデックスに戻る</a>
+    </div>
+
+<!-- プロンプト選択のためのラジオボタン -->
+<h4>アクティブにするプロンプト</h4>
+<div class="prompt_rajio">
+<form method="post" action="{% url 'update_user_prompt' %}">
+    {% csrf_token %}
+    <input type="radio" id="select_prompt1" name="selected_prompt" value="prompt1" {% if selected_prompt == 'prompt1' %} checked {% endif %}>
+    <label for="select_prompt1">プロンプト1</label><br>
+    <input type="radio" id="select_prompt2" name="selected_prompt" value="prompt2" {% if selected_prompt == 'prompt2' %} checked {% endif %}>
+    <label for="select_prompt2">プロンプト2</label><br>
+    <input type="radio" id="select_prompt3" name="selected_prompt" value="prompt3" {% if selected_prompt == 'prompt3' %} checked {% endif %}>
+    <label for="select_prompt3">プロンプト3</label><br>
+    <input type="submit" value="選択を保存">
+</form>
+
+<hr>
+<h4>プロンプトの内容</h4>
+
+
+
+
+<div class="tab">
+    <button class="tablinks" onclick="openPrompt(event, 'Prompt1')">プロンプト1</button>
+    <button class="tablinks" onclick="openPrompt(event, 'Prompt2')">プロンプト2</button>
+    <button class="tablinks" onclick="openPrompt(event, 'Prompt3')">プロンプト3</button>
+</div>
+
+<div id="Prompt1" class="tabcontent">
+    <form method="post" action="{% url 'update_prompt' %}">
+        {% csrf_token %}
+        <textarea name="gpt_prompt1" id="gpt_prompt1" rows="4" cols="50" maxlength="500">{{ current_prompt1 }}</textarea>
+        <div id="prompt_length_info1">0 / 500 文字</div>
+        <input type="submit" value="プロンプトを保存"><br>
+        <button type="button" onclick="clearText('gpt_prompt1')">クリア</button><br>
+        <button type="button" onclick="resetToDefault('gpt_prompt1', '{{ default_prompt1 }}')">デフォルトに戻す</button>
+    </form>
+</div>
+
+<div id="Prompt2" class="tabcontent">
+    <form method="post" action="{% url 'update_prompt' %}">
+        {% csrf_token %}
+        <textarea name="gpt_prompt2" id="gpt_prompt2" rows="4" cols="50" maxlength="500">{{ current_prompt2 }}</textarea>
+        <div id="prompt_length_info2">0 / 500 文字</div>
+        <input type="submit" value="プロンプトを保存"><br>
+        <button type="button" onclick="clearText('gpt_prompt2')">クリア</button><br>
+        <button type="button" onclick="resetToDefault('gpt_prompt2', '{{ default_prompt1 }}')">デフォルトに戻す</button>
+    </form>
+</div>
+
+<div id="Prompt3" class="tabcontent">
+    <form method="post" action="{% url 'update_prompt' %}">
+        {% csrf_token %}
+        <textarea name="gpt_prompt3" id="gpt_prompt3" rows="4" cols="50" maxlength="500">{{ current_prompt3 }}</textarea>
+        <div id="prompt_length_info3">0 / 500 文字</div>
+        <input type="submit" value="プロンプトを保存"><br>
+        <button type="button" onclick="clearText('gpt_prompt3')">クリア</button><br>
+        <button type="button" onclick="resetToDefault('gpt_prompt3', '{{ default_prompt1 }}')">デフォルトに戻す</button>
+        
+    </form>
+</div>
+
+
+<!-- user_prompt_form.html の一部 -->
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function updateCharacterCount(textarea, info) {
+            var length = textarea.value.length;
+            var maxLength = textarea.getAttribute('maxlength');
+            info.textContent = length + ' / ' + maxLength + ' 文字';
+        }
+    
+        // 各テキストエリアに対するイベントリスナーの設定
+        ['gpt_prompt1', 'gpt_prompt2', 'gpt_prompt3'].forEach(function(id) {
+            var textarea = document.getElementById(id);
+            var info = document.getElementById('prompt_length_info' + id.slice(-1));
+    
+            textarea.addEventListener('input', function() {
+                updateCharacterCount(textarea, info);
+            });
+    
+            // 初期ロード時に文字数を更新
+            updateCharacterCount(textarea, info);
+        });
+    
+        var selectedPrompt = "{{ selected_prompt }}"; // Djangoテンプレートから値を取得
+        var promptToOpen = 'Prompt1'; // デフォルトのタブ
+    
+        if (selectedPrompt === 'prompt2') {
+            promptToOpen = 'Prompt2';
+        } else if (selectedPrompt === 'prompt3') {
+            promptToOpen = 'Prompt3';
+        }
+    
+        // 対応するタブを開く
+        openPrompt(null, promptToOpen);
+    });
+    
+    
+    
+    // タブの機能を追加
+    function openPrompt(evt, promptName) {
+        // すべてのタブコンテンツを非表示
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // すべてのタブリンクを非アクティブにする
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // 選択されたタブコンテンツを表示し、タブをアクティブにする
+        document.getElementById(promptName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // 初期状態で最初のタブを開く
+    document.getElementsByClassName("tablinks")[0].click();
+
+      // テキストエリアをクリアする関数
+      function clearText(elementId) {
+        document.getElementById(elementId).value = '';
+    }
+
+    // テキストエリアをデフォルトの値に戻す関数
+    function resetToDefault(elementId, defaultValue) {
+        document.getElementById(elementId).value = defaultValue;
+    }
+</script>
+</body>
+</html>
