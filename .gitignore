@@ -10,3 +10,4 @@ staticfiles/
 mysite/prod_settings.py
 mysite/.env
 myapp/tts_service (しまとつむぎ の競合コピー 2025-01-30).py
+mysite/dev_settings.py
